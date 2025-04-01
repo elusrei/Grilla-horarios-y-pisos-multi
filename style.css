@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 15.3px;
   }
   
   body {
@@ -22,28 +23,32 @@
     margin: 0 auto;
   }
   
-  /* Botón de exportación */
-  .export-button-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1.5rem;
-  }
-  
-  .export-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #285E61;
-    color: #EEE76E;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    font-family: 'Ubuntu Mono', monospace;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
+/* Botón de exportación */
+.export-button-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000; /* Para que quede por encima de otros elementos */
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none; /* Para evitar que bloquee elementos detrás si es necesario */
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #285E61;
+  color: #EEE76E;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  pointer-events: auto; /* Reactivar interactividad solo en el botón */
+}
   
   .export-button:hover {
     background-color: #234E52;
