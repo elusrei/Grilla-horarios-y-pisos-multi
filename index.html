@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grilla Horaria UNA - Artes Multimediales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="export-button-container">
+      <button id="exportButton" class="export-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        EXPORTAR A PDF
+      </button>
+    </div>
+
+    <div class="schedule-container">
+      <div class="schedule-content">
+        <!-- Página 1 -->
+        <div class="schedule-page">
+          <div class="schedule-header">
+            <h1>UNIVERSIDAD NACIONAL DE LAS ARTES</h1>
+            <h2>ARTES MULTIMEDIALES</h2>
+            <p>Viamonte 1832, CABA, Argentina</p>
+            <p>multimedia.una.edu.ar</p>
+          </div>
+          
+          <div class="schedule-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>MATERIA</th>
+                  <th>CÁTEDRA</th>
+                  <th>DÍA</th>
+                  <th>HORARIO</th>
+                  <th>AULA</th>
+                  <th>PISO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Informática General -->
+                <tr class="even-row">
+                  <td rowspan="4" class="subject-cell">Informática General</td>
+                  <td rowspan="3" class="professor-cell">Drelichman</td>
+                  <td>lunes</td>
+                  <td>9 a 13</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="even-row">
+                  <td>lunes</td>
+                  <td>14 a 18</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="even-row">
+                  <td>lunes</td>
+                  <td>19 a 23</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="even-row">
+                  <td class="professor-cell">Tirigall</td>
+                  <td>lunes</td>
+                  <td>14 a 18</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Artes Multimediales 1 -->
+                <tr class="odd-row">
+                  <td rowspan="5" class="subject-cell">Artes Multimediales 1</td>
+                  <td rowspan="2" class="professor-cell">Lacabanne</td>
+                  <td>miércoles</td>
+                  <td>9 a 14</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="odd-row">
+                  <td>miércoles</td>
+                  <td>18 a 23</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="odd-row">
+                  <td rowspan="2" class="professor-cell">Groisman</td>
+                  <td>miércoles</td>
+                  <td>9 a 14</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="odd-row">
+                  <td>miércoles</td>
+                  <td>18 a 23</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="odd-row">
+                  <td class="professor-cell">Pirotta</td>
+                  <td>miércoles</td>
+                  <td>14 a 18</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+
+                <!-- Laboratorio de Sonido 1 -->
+                <tr class="even-row">
+                  <td rowspan="3" class="subject-cell">Laboratorio de Sonido 1</td>
+                  <td class="professor-cell">Martinez</td>
+                  <td>martes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="even-row">
+                  <td rowspan="2" class="professor-cell">Cura</td>
+                  <td>martes</td>
+                  <td>14 a 18</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="even-row">
+                  <td>martes</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+
+                <!-- Proyecto Visual -->
+                <tr class="odd-row">
+                  <td rowspan="4" class="subject-cell">Proyecto Visual</td>
+                  <td class="professor-cell">Domergue</td>
+                  <td>viernes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="odd-row">
+                  <td rowspan="3" class="professor-cell">Serrano Gómez</td>
+                  <td>viernes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="odd-row">
+                  <td>viernes</td>
+                  <td>14 a 18</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="odd-row">
+                  <td>viernes</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+
+                <!-- Semiología General -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Semiología General</td>
+                  <td rowspan="2" class="professor-cell">Martinez Mendoza</td>
+                  <td>lunes com. A</td>
+                  <td>16 a 18</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+                <tr class="even-row">
+                  <td>martes com. B</td>
+                  <td>16 a 18</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+
+                <!-- Semiología General (otro grupo) -->
+                <tr class="odd-row">
+                  <td rowspan="2" class="subject-cell">Semiología General</td>
+                  <td class="professor-cell">Rocha</td>
+                  <td>jueves</td>
+                  <td>12 a 14</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+                <tr class="odd-row">
+                  <td class="professor-cell">Accorinti</td>
+                  <td>jueves</td>
+                  <td>12 a 14</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Historia Sociocultural del Arte -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Historia Sociocultural del Arte</td>
+                  <td class="professor-cell">Zabala</td>
+                  <td>jueves</td>
+                  <td>10 a 13</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+                <tr class="even-row">
+                  <td class="professor-cell">Mauro</td>
+                  <td>jueves</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">201</td>
+                  <td class="floor-cell">P2</td>
+                </tr>
+
+                <!-- Historia Sociocultural del Arte 3 -->
+                <tr class="even-row">
+                    <td class="subject-cell">Historia Sociocultural del Arte 3</td>
+                    <td class="professor-cell">Zabala / Cardoso</td>
+                    <td>jueves</td>
+                    <td>18 a 21</td>
+                    <td class="classroom-cell">101</td>
+                    <td class="floor-cell">P1</td>
+                  </tr>
+                  
+                  <!-- Proyecto Visual 3 -->
+                <tr class="even-row">
+                    <td rowspan="2" class="subject-cell">Proyecto Visual 3</td>
+                    <td rowspan="2" class="professor-cell">Serrano Gómez</td>
+                    <td>viernes</td>
+                    <td>10 a 14</td>
+                    <td class="classroom-cell">101</td>
+                    <td class="floor-cell">P1</td>
+                  </tr>
+                  <tr class="even-row">
+                    <td>viernes</td>
+                    <td>19 a 23</td>
+                    <td class="classroom-cell">101</td>
+                    <td class="floor-cell">P1</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Página 2 -->
+        <div class="schedule-page page-break">
+          <div class="schedule-header">
+            <h1>UNIVERSIDAD NACIONAL DE LAS ARTES</h1>
+            <h2>ARTES MULTIMEDIALES</h2>
+            <p>Viamonte 1832, CABA, Argentina</p>
+            <p>multimedia.una.edu.ar</p>
+          </div>
+          
+          <div class="schedule-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>MATERIA</th>
+                  <th>CÁTEDRA</th>
+                  <th>DÍA</th>
+                  <th>HORARIO</th>
+                  <th>AULA</th>
+                  <th>PISO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Informática Aplicada 1 -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Informática Aplicada 1</td>
+                  <td class="professor-cell">Samaruga</td>
+                  <td>lunes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+                <tr class="even-row">
+                  <td class="professor-cell">Bedoian</td>
+                  <td>lunes</td>
+                  <td>19 a 23</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Informática Aplicada 2 -->
+                <tr class="odd-row">
+                  <td rowspan="2" class="subject-cell">Informática Aplicada 2</td>
+                  <td class="professor-cell">Tirigall</td>
+                  <td>lunes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="odd-row">
+                  <td class="professor-cell">Causa</td>
+                  <td>lunes</td>
+                  <td>19 a 23</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+
+                <!-- Laboratorio de Sonido 2 -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Laboratorio de Sonido 2</td>
+                  <td rowspan="2" class="professor-cell">Romero Costas</td>
+                  <td>martes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="even-row">
+                  <td>martes</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Laboratorio de Sonido 3 -->
+                <tr class="odd-row">
+                  <td rowspan="2" class="subject-cell">Laboratorio de Sonido 3</td>
+                  <td class="professor-cell">Abregú</td>
+                  <td>martes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+                <tr class="odd-row">
+                  <td class="professor-cell">Cetta</td>
+                  <td>martes</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+
+                <!-- Artes Multimediales 2 -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Artes Multimediales 2</td>
+                  <td class="professor-cell">Tirigall</td>
+                  <td>miércoles</td>
+                  <td>14 a 19</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="even-row">
+                  <td class="professor-cell">Rodriguez</td>
+                  <td>miércoles</td>
+                  <td>18 a 23</td>
+                  <td class="classroom-cell">501</td>
+                  <td class="floor-cell">P5</td>
+                </tr>
+
+                <!-- Artes Multimediales 3 -->
+                <tr class="odd-row">
+                  <td class="subject-cell">Artes Multimediales 3</td>
+                  <td class="professor-cell">Causa</td>
+                  <td>miércoles</td>
+                  <td>18 a 23</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+
+                <!-- Artes Multimediales 4 -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Artes Multimediales 4</td>
+                  <td class="professor-cell">Lacabanne</td>
+                  <td>miércoles</td>
+                  <td>18 a 23</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+                <tr class="even-row">
+                  <td class="professor-cell">Gendin</td>
+                  <td>miércoles</td>
+                  <td>9 a 14</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+
+                <!-- Audiovisión 1 -->
+                <tr class="odd-row">
+                  <td class="subject-cell">Audiovisión 1</td>
+                  <td class="professor-cell">Sosa</td>
+                  <td>jueves</td>
+                  <td>9 a 12</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Audiovisión 2 -->
+                <tr class="even-row">
+                  <td rowspan="2" class="subject-cell">Audiovisión 2</td>
+                  <td rowspan="2" class="professor-cell">Corazza</td>
+                  <td>jueves</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">501</td>
+                  <td class="floor-cell">P5</td>
+                </tr>
+                <tr class="even-row">
+                  <td>jueves</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">501</td>
+                  <td class="floor-cell">P5</td>
+                </tr>
+
+                <!-- Filosofía y Estética -->
+                <tr class="odd-row">
+                  <td class="subject-cell">Filosofía y Estética</td>
+                  <td class="professor-cell">Lucero/Dorr</td>
+                  <td>lunes</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Tecnología de Redes -->
+                <tr class="even-row">
+                  <td class="subject-cell">Tecnología de Redes</td>
+                  <td class="professor-cell">Palacios</td>
+                  <td>jueves</td>
+                  <td>19 a 23</td>
+                  <td class="classroom-cell">501</td>
+                  <td class="floor-cell">P5</td>
+                </tr>
+
+                <!-- Organización y producción de eventos -->
+                <tr class="odd-row">
+                  <td class="subject-cell">Organización y producción de eventos</td>
+                  <td class="professor-cell">Rizzi</td>
+                  <td>jueves</td>
+                  <td>17 a 19</td>
+                  <td class="classroom-cell">001</td>
+                  <td class="floor-cell">PB</td>
+                </tr>
+
+                <!-- Historia de las Artes Audiovisuales -->
+                <tr class="even-row">
+                  <td class="subject-cell">Historia de las Artes Audiovisuales</td>
+                  <td class="professor-cell">Rizzi</td>
+                  <td>jueves</td>
+                  <td>19 a 22</td>
+                  <td class="classroom-cell">001</td>
+                  <td class="floor-cell">PB</td>
+                </tr>
+
+                <!-- Proyecto Visual 2 -->
+                <tr class="odd-row">
+                  <td rowspan="4" class="subject-cell">Proyecto Visual 2</td>
+                  <td rowspan="2" class="professor-cell">Saiz</td>
+                  <td>viernes</td>
+                  <td>10 a 14</td>
+                  <td class="classroom-cell">501</td>
+                  <td class="floor-cell">P5</td>
+                </tr>
+                <tr class="odd-row">
+                  <td>viernes</td>
+                  <td>19 a 23</td>
+                  <td class="classroom-cell">501</td>
+                  <td class="floor-cell">P5</td>
+                </tr>
+                <tr class="odd-row">
+                  <td class="professor-cell">Serrano Gómez</td>
+                  <td>viernes</td>
+                  <td>14 a 18</td>
+                  <td class="classroom-cell">101</td>
+                  <td class="floor-cell">P1</td>
+                </tr>
+                <tr class="odd-row">
+                  <td class="professor-cell">Domergue</td>
+                  <td>viernes</td>
+                  <td>18 a 22</td>
+                  <td class="classroom-cell">301</td>
+                  <td class="floor-cell">P3</td>
+                </tr>
+
+                <!-- Metodología de la Investigación -->
+                <tr class="odd-row">
+                  <td class="subject-cell">Metodología de la Investigación</td>
+                  <td class="professor-cell">Dorr</td>
+                  <td>martes</td>
+                  <td>19 a 22</td>
+                  <td class="classroom-cell">001</td>
+                  <td class="floor-cell">PB</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="schedule-footer">
+            <p>© 2025 Universidad Nacional de las Artes - Departamento de Artes Multimediales</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
