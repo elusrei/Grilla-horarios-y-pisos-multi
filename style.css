@@ -23,10 +23,20 @@ body {
   margin: 0 auto;
 }
 
+/* Contenido que solo se muestra en la web, no en la impresión */
+.web-only-content {
+  width: 100%;
+  margin-bottom: 2rem;
+  background-color: #1d4044;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #eee76e;
+}
+
 /* Botón de exportación */
 .export-button-container {
   position: fixed;
-  top: 1rem;
+  bottom: 1rem;
   right: 1rem;
   z-index: 1000; /* Para que quede por encima de otros elementos */
   display: flex;
@@ -48,6 +58,7 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
   pointer-events: auto; /* Reactivar interactividad solo en el botón */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .export-button:hover {
@@ -56,6 +67,11 @@ body {
 
 /* Contenedor de la grilla */
 .schedule-container {
+  width: 100%;
+}
+
+/* Contenedor del contenido a imprimir */
+.printable-content {
   width: 100%;
 }
 
@@ -142,6 +158,47 @@ td {
   margin-bottom: 1.5rem;
 }
 
+/* Estilos para móviles */
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+
+  .schedule-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .schedule-header h2 {
+    font-size: 1rem;
+  }
+
+  /* Hacer la tabla responsive */
+  .schedule-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ajustar el botón de exportación para móviles */
+  .export-button-container {
+    bottom: 1rem;
+    right: 1rem;
+    top: auto;
+  }
+
+  .export-button {
+    padding: 0.75rem 1rem;
+  }
+}
+
 /* Estilos para impresión */
 @media print {
   body {
@@ -153,7 +210,8 @@ td {
     color-adjust: exact !important;
   }
 
-  .export-button-container {
+  .export-button-container,
+  .web-only-content {
     display: none !important;
   }
 
