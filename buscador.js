@@ -196,76 +196,94 @@ class Buscador {
 
   // Crear la interfaz de búsqueda
   createSearchInterface() {
-    // Crear contenedor principal
-    const searchContainer = document.createElement("div")
-    searchContainer.className = "web-only-content"
-    searchContainer.style.display = "flex"
-    searchContainer.style.flexDirection = "column"
-    searchContainer.style.gap = "1rem"
+  // Crear contenedor principal
+  const searchContainer = document.createElement("div");
+  searchContainer.className = "web-only-content";
+  searchContainer.style.display = "flex";
+  searchContainer.style.flexDirection = "column";
+  searchContainer.style.gap = "1rem";
 
-    // Crear campo de búsqueda
-    const searchInputContainer = document.createElement("div")
-    searchInputContainer.style.display = "flex"
-    searchInputContainer.style.gap = "0.5rem"
+  // Título (h1)
+  this.searchTitle = document.createElement("h1");
+  this.searchTitle.textContent = "Buscador de Materias";
+  this.searchTitle.style.color = "#eee76e";
+  this.searchTitle.style.margin = "0";
 
-    this.searchInput = document.createElement("input")
-    this.searchInput.type = "text"
-    this.searchInput.placeholder = "Buscar por materia o docente..."
-    this.searchInput.style.flex = "1"
-    this.searchInput.style.padding = "0.5rem"
-    this.searchInput.style.borderRadius = "0.25rem"
-    this.searchInput.style.border = "1px solid #eee76e"
-    this.searchInput.style.backgroundColor = "#1d4044"
-    this.searchInput.style.color = "white"
+  // Párrafo (p)
+  this.searchDescription = document.createElement("p");
+  this.searchDescription.textContent = "Podes buscar tus materias y exportar un pdf personalizado.";
+  this.searchDescription.style.color = "#ccc";
+  this.searchDescription.style.margin = "0";
 
-    this.searchButton = document.createElement("button")
-    this.searchButton.textContent = "Buscar"
-    this.searchButton.className = "export-button"
-    this.searchButton.style.backgroundColor = "#285e61"
+  // Agregarlos primero al contenedor principal
+  searchContainer.appendChild(this.searchTitle);
+  searchContainer.appendChild(this.searchDescription);
 
-    searchInputContainer.appendChild(this.searchInput)
-    searchInputContainer.appendChild(this.searchButton)
+  // Crear campo de búsqueda
+  const searchInputContainer = document.createElement("div");
+  searchInputContainer.style.display = "flex";
+  searchInputContainer.style.gap = "0.5rem";
 
-    // Botones para gestionar la selección
-    const selectionButtonsContainer = document.createElement("div")
-    selectionButtonsContainer.style.display = "flex"
-    selectionButtonsContainer.style.gap = "0.5rem"
-    selectionButtonsContainer.style.flexWrap = "wrap"
+  this.searchInput = document.createElement("input");
+  this.searchInput.type = "text";
+  this.searchInput.placeholder = "Buscar por materia o docente...";
+  this.searchInput.style.flex = "1";
+  this.searchInput.style.padding = "0.5rem";
+  this.searchInput.style.borderRadius = "0.25rem";
+  this.searchInput.style.border = "1px solid #eee76e";
+  this.searchInput.style.backgroundColor = "#1d4044";
+  this.searchInput.style.color = "white";
 
-    this.clearSelectionButton = document.createElement("button")
-    this.clearSelectionButton.textContent = "Limpiar selección"
-    this.clearSelectionButton.className = "export-button"
-    this.clearSelectionButton.style.backgroundColor = "#6b2e2e"
-    this.clearSelectionButton.disabled = true
+  this.searchButton = document.createElement("button");
+  this.searchButton.textContent = "Buscar";
+  this.searchButton.className = "export-button";
+  this.searchButton.style.backgroundColor = "#285e61";
 
-    selectionButtonsContainer.appendChild(this.clearSelectionButton)
+  searchInputContainer.appendChild(this.searchInput);
+  searchInputContainer.appendChild(this.searchButton);
 
-    // Contenedor para términos de búsqueda
-    this.searchTermsContainer = document.createElement("div")
-    this.searchTermsContainer.className = "search-terms-container"
-    this.searchTermsContainer.style.display = "flex"
-    this.searchTermsContainer.style.flexWrap = "wrap"
-    this.searchTermsContainer.style.gap = "0.5rem"
+  // Botones para gestionar la selección
+  const selectionButtonsContainer = document.createElement("div");
+  selectionButtonsContainer.style.display = "flex";
+  selectionButtonsContainer.style.gap = "0.5rem";
+  selectionButtonsContainer.style.flexWrap = "wrap";
 
-    // Información sobre la selección actual
-    this.selectionInfo = document.createElement("div")
-    this.selectionInfo.className = "selection-info"
-    this.selectionInfo.style.marginTop = "0.5rem"
-    this.selectionInfo.style.color = "#eee76e"
-    this.selectionInfo.textContent = "No hay materias seleccionadas"
+  this.clearSelectionButton = document.createElement("button");
+  this.clearSelectionButton.textContent = "Limpiar selección";
+  this.clearSelectionButton.className = "export-button";
+  this.clearSelectionButton.style.backgroundColor = "#6b2e2e";
+  this.clearSelectionButton.disabled = true;
 
-    // Agregar todo al contenedor principal
-    searchContainer.appendChild(searchInputContainer)
-    searchContainer.appendChild(selectionButtonsContainer)
-    searchContainer.appendChild(this.searchTermsContainer)
-    searchContainer.appendChild(this.selectionInfo)
+  selectionButtonsContainer.appendChild(this.clearSelectionButton);
 
-    // Insertar antes de la navegación principal
-    const mainNav = document.querySelector(".main-nav")
-    if (mainNav && mainNav.parentNode) {
-      mainNav.parentNode.insertBefore(searchContainer, mainNav)
-    }
+  // Contenedor para términos de búsqueda
+  this.searchTermsContainer = document.createElement("div");
+  this.searchTermsContainer.className = "search-terms-container";
+  this.searchTermsContainer.style.display = "flex";
+  this.searchTermsContainer.style.flexWrap = "wrap";
+  this.searchTermsContainer.style.gap = "0.5rem";
+
+  // Información sobre la selección actual
+  this.selectionInfo = document.createElement("div");
+  this.selectionInfo.className = "selection-info";
+  this.selectionInfo.style.marginTop = "0.5rem";
+  this.selectionInfo.style.color = "#eee76e";
+  this.selectionInfo.textContent = "No hay materias seleccionadas";
+
+  // Agregar el resto de elementos
+  searchContainer.appendChild(searchInputContainer);
+  searchContainer.appendChild(selectionButtonsContainer);
+  searchContainer.appendChild(this.searchTermsContainer);
+  searchContainer.appendChild(this.selectionInfo);
+
+  // Insertar antes de la navegación principal
+  const scheduleContainer = document.querySelector(".schedule-container");
+  if (scheduleContainer && scheduleContainer.parentNode) {
+    scheduleContainer.parentNode.insertBefore(searchContainer, scheduleContainer);
   }
+  
+}
+
 
   // Crear la grilla paralela para previsualización
   createPreviewGrid() {
