@@ -258,7 +258,16 @@ td {
     padding: 0.75rem 1rem;
   }
 }
-
+.no-link {
+  color: #4fd1c5; /* celeste verdoso apagado */
+  background-color: transparent;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: not-allowed;
+  opacity: 0.4;
+  border-bottom: 1px dashed #4fd1c5;
+  pointer-events: none;
+}
 /* Estilos para impresión */
 @media print {
   body {
@@ -315,13 +324,4 @@ td {
   margin: 3mm; /* Add margin around the page */
 }
 
-.no-link {
-  color: #4fd1c5; /* celeste verdoso apagado */
-  background-color: transparent;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: not-allowed;
-  opacity: 0.4;
-  border-bottom: 1px dashed #4fd1c5;
-  pointer-events: none;
-}
+
