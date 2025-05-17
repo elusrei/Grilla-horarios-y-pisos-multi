@@ -1,4 +1,3 @@
-
 // Función para exportar a PDF
 document.getElementById('exportButton').addEventListener('click',
 function() {
@@ -6,9 +5,36 @@ function() {
   if (window.innerWidth <= 768) {
     alert('Se abrirá la vista de impresión. Selecciona "Guardar como PDF" en las opciones de impresión.');
   }
+  
+  // Add a style element to force A4 size and remove margins
+  const styleElement = document.createElement('style');
+  styleElement.textContent = `
+    @page {
+      size: A4;
+      margin: 0mm !important; /* Remove all margins */
+    }
+    
+    @media print {
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      .printable-content {
+        padding: 5mm; /* Add a small internal padding instead of margin */
+      }
+    }
+  `;
+  document.head.appendChild(styleElement);
+  
+  // Trigger print
   window.print();
-}
-)
+  
+  // Remove the style element after printing
+  setTimeout(() => {
+    document.head.removeChild(styleElement);
+  }, 1000);
+})
 
 // Función para calcular el piso a partir del aula (por si se necesita dinámicamente)
 function getFloor(classroom) {
@@ -38,3 +64,4 @@ function adjustExportButtonPosition() {
 window.addEventListener("load", adjustExportButtonPosition)
 window.addEventListener("resize", adjustExportButtonPosition)
 
+console.log("Script loaded with A4 export fix");

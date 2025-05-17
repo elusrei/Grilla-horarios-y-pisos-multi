@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma Anual - Artes Multimediales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos específicos para el cronograma anual */
+    .calendar-section {
+      margin-bottom: 2rem;
+      border-radius: 0.375rem;
+      overflow: hidden;
+    }
+    
+    .calendar-header {
+      background-color: rgba(238, 231, 110, 0.7); /* Amarillo menos saturado */
+      color: #1d4044;
+      padding: 0.75rem; /* Padding reducido */
+      text-align: center;
+      border-radius: 0.375rem 0.375rem 0 0;
+    }
+    
+    .calendar-header h2 {
+      margin: 0;
+      font-size: 1.2rem; /* Tamaño reducido */
+      font-weight: bold;
+    }
+    
+    .calendar-content {
+      background-color: rgba(35, 78, 82, 0.3);
+      padding: 1rem;
+      border-radius: 0 0 0.375rem 0.375rem;
+      border-left: 1px solid #eee76e;
+      border-right: 1px solid #eee76e;
+      border-bottom: 1px solid #eee76e;
+    }
+    
+    .event-category {
+      margin-bottom: 1.5rem;
+    }
+    
+    .event-category-title {
+      background-color: #285e61;
+      color: #eee76e;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: bold;
+      display: inline-block;
+    }
+    
+    .event-item {
+      display: flex;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed rgba(238, 231, 110, 0.3);
+    }
+    
+    .event-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .event-date {
+      flex: 0 0 30%;
+      color: #eee76e;
+      font-weight: bold;
+      padding-right: 1rem;
+    }
+    
+    .event-description {
+      flex: 0 0 70%;
+    }
+    
+    .event-title {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+      color: white;
+    }
+    
+    .event-details {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    
+    .highlight-event {
+      background-color: rgba(238, 231, 110, 0.1);
+      border-radius: 0.25rem;
+      padding: 0.5rem;
+    }
+    
+    .semester-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #eee76e, transparent);
+      margin: 2rem 0;
+    }
+    
+    .important-date {
+      color: #eee76e;
+      font-weight: bold;
+    }
+    
+    .receso-section {
+      background-color: rgba(77, 124, 128, 0.3);
+      border-radius: 0.375rem;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-left: 3px solid #eee76e;
+    }
+    
+    /* Estilos para la tabla de fechas importantes */
+    .dates-summary {
+      margin: 1.5rem 0;
+      background-color: rgba(35, 78, 82, 0.5);
+      border-radius: 0.375rem;
+      padding: 1rem;
+      border: 1px solid rgba(238, 231, 110, 0.5);
+    }
+    
+    .dates-summary-title {
+      color: #eee76e;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    
+    .dates-summary table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .dates-summary th {
+      background-color: rgba(40, 94, 97, 0.7);
+      color: #eee76e;
+      padding: 0.5rem;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    
+    .dates-summary td {
+      padding: 0.5rem;
+      border-bottom: 1px solid rgba(238, 231, 110, 0.2);
+    }
+    
+    .dates-summary .subject-cell {
+      width: 30%;
+      color: #eee76e;
+    }
+    
+    .dates-summary .classroom-cell {
+      width: 20%;
+      text-align: center;
+      color: #eee76e;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .event-item {
+        flex-direction: column;
+      }
+      
+      .event-date {
+        flex: 0 0 100%;
+        margin-bottom: 0.5rem;
+      }
+      
+      .event-description {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- Contenido que solo se muestra en la web, no en la exportación -->
+    <div class="web-only-content">
+      <h1>Cronograma Anual - Artes Multimediales</h1>
+      <!-- Aquí puedes agregar cualquier contenido adicional que quieras mostrar solo en la web -->
+    </div>
+
+    <!-- Navegación entre páginas -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Grilla Horaria</a></li>
+        <li><a href="links-a-catedras.html">Links a Cátedras</a></li>
+        <li><a href="cronograma-anual.html" class="active">Cronograma Anual</a></li>
+      </ul>
+    </nav>
+
+    <div class="export-button-container">
+      <button id="exportButton" class="export-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        EXPORTAR A PDF
+      </button>
+    </div>
+
+    <div class="schedule-container">
+      <!-- Contenido que se exportará al PDF -->
+      <div class="printable-content">
+        <div class="schedule-header">
+          <h1>CALENDARIO ACADÉMICO 2025</h1>
+          <h2>UNIVERSIDAD NACIONAL DE LAS ARTES</h2>
+          <p>Departamento de Artes Multimediales</p>
+        </div>
+
+        <!-- Resumen de fechas importantes (movido al principio) -->
+        <div class="dates-summary">
+          <div class="dates-summary-title">FECHAS CLAVE DEL AÑO ACADÉMICO</div>
+          <table>
+            <thead>
+              <tr>
+                <th>PERÍODO</th>
+                <th>FECHAS</th>
+                <th>DURACIÓN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="subject-cell">Inicio de actividades</td>
+                <td>3 de febrero</td>
+                <td class="classroom-cell">-</td>
+              </tr>
+              <tr>
+                <td class="subject-cell">1° Cuatrimestre</td>
+                <td>31 de marzo al 18 de julio</td>
+                <td class="classroom-cell">16 semanas</td>
+              </tr>
+              <tr>
+                <td class="subject-cell">Receso Invernal</td>
+                <td>21 de julio al 3 de agosto</td>
+                <td class="classroom-cell">2 semanas</td>
+              </tr>
+              <tr>
+                <td class="subject-cell">2° Cuatrimestre</td>
+                <td>11 de agosto al 28 de noviembre</td>
+                <td class="classroom-cell">16 semanas</td>
+              </tr>
+              <tr>
+                <td class="subject-cell">Mesas de Examen</td>
+                <td>Marzo, Agosto y Diciembre</td>
+                <td class="classroom-cell">3 turnos</td>
+              </tr>
+              <tr>
+                <td class="subject-cell">Fin de actividades</td>
+                <td>22 de diciembre</td>
+                <td class="classroom-cell">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Inicio del año académico -->
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <h2>INICIO DEL AÑO ACADÉMICO</h2>
+          </div>
+          <div class="calendar-content">
+            <div class="event-category">
+              <div class="event-item highlight-event">
+                <div class="event-date">3 de febrero</div>
+                <div class="event-description">
+                  <div class="event-title">INICIO DE LAS ACTIVIDADES ACADÉMICAS</div>
+                  <div class="event-details">Comienzo del año académico 2025</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">17 al 21 de febrero</div>
+                <div class="event-description">
+                  <div class="event-title">Período de presentación</div>
+                  <div class="event-details">Presentación de la carrera y actividades de orientación artística profesional para <span class="important-date">INGRESANTES 2025</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primer Cuatrimestre -->
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <h2>1° CUATRIMESTRE</h2>
+          </div>
+          <div class="calendar-content">
+            <!-- Inscripciones -->
+            <div class="event-category">
+              <div class="event-category-title">INSCRIPCIONES</div>
+              
+              <div class="event-item">
+                <div class="event-date">24 y 25 de febrero</div>
+                <div class="event-description">
+                  <div class="event-title">PERÍODO DE INSCRIPCIÓN A MATERIAS</div>
+                  <div class="event-details">Inscripción a materias anuales y cuatrimestrales</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">20 y 21 de marzo</div>
+                <div class="event-description">
+                  <div class="event-title">REMANENTE DE INSCRIPCIÓN A MATERIAS</div>
+                  <div class="event-details">Inscripción a materias con cupo remanentes</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Exámenes -->
+            <div class="event-category">
+              <div class="event-category-title">MESAS DE EXÁMENES - TURNO MARZO</div>
+              
+              <div class="event-item">
+                <div class="event-date">27 y 28 de febrero</div>
+                <div class="event-description">
+                  <div class="event-title">Inscripción a mesas de examen</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">10 al 21 de marzo</div>
+                <div class="event-description">
+                  <div class="event-title">Período de mesas de examen</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Clases -->
+            <div class="event-category">
+              <div class="event-category-title">CLASES Y ACTIVIDADES ACADÉMICAS</div>
+              
+              <div class="event-item highlight-event">
+                <div class="event-date">31 de marzo</div>
+                <div class="event-description">
+                  <div class="event-title">COMIENZO DE CLASES</div>
+                  <div class="event-details">Inicio del primer cuatrimestre</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">1 al 15 de abril</div>
+                <div class="event-description">
+                  <div class="event-title">Recepción de solicitud de Equivalencias</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">14 al 18 de julio</div>
+                <div class="event-description">
+                  <div class="event-title">Semana de cierre y carga de calificaciones</div>
+                </div>
+              </div>
+              
+              <div class="event-item highlight-event">
+                <div class="event-date">18 de julio</div>
+                <div class="event-description">
+                  <div class="event-title">FINALIZACIÓN 1° CUATRIMESTRE</div>
+                  <div class="event-details">Fin del primer cuatrimestre (16 semanas)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Receso Invernal -->
+        <div class="receso-section">
+          <div class="event-item">
+            <div class="event-date">21 de julio al 03 de agosto</div>
+            <div class="event-description">
+              <div class="event-title">RECESO INVERNAL</div>
+              <div class="event-details">Período de vacaciones de invierno</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Segundo Cuatrimestre -->
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <h2>2° CUATRIMESTRE</h2>
+          </div>
+          <div class="calendar-content">
+            <!-- Inscripciones -->
+            <div class="event-category">
+              <div class="event-category-title">INSCRIPCIONES</div>
+              
+              <div class="event-item">
+                <div class="event-date">28 y 29 de julio</div>
+                <div class="event-description">
+                  <div class="event-title">PERÍODO DE INSCRIPCIÓN A MATERIAS</div>
+                  <div class="event-details">Inscripción a materias cuatrimestrales</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Exámenes -->
+            <div class="event-category">
+              <div class="event-category-title">MESAS DE EXÁMENES - TURNO AGOSTO</div>
+              
+              <div class="event-item">
+                <div class="event-date">23 y 24 de julio</div>
+                <div class="event-description">
+                  <div class="event-title">Inscripción a mesas de examen</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">4 al 8 de agosto</div>
+                <div class="event-description">
+                  <div class="event-title">Período de mesas de examen</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Clases -->
+            <div class="event-category">
+              <div class="event-category-title">CLASES Y ACTIVIDADES ACADÉMICAS</div>
+              
+              <div class="event-item highlight-event">
+                <div class="event-date">11 de agosto</div>
+                <div class="event-description">
+                  <div class="event-title">COMIENZO DE CLASES</div>
+                  <div class="event-details">Inicio del segundo cuatrimestre</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">18 al 29 de agosto</div>
+                <div class="event-description">
+                  <div class="event-title">Recepción de solicitud de Equivalencias</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">24 al 28 de noviembre</div>
+                <div class="event-description">
+                  <div class="event-title">Semana de cierre y carga de calificaciones</div>
+                </div>
+              </div>
+              
+              <div class="event-item highlight-event">
+                <div class="event-date">28 de noviembre</div>
+                <div class="event-description">
+                  <div class="event-title">FINALIZACIÓN 2° CUATRIMESTRE</div>
+                  <div class="event-details">Fin del segundo cuatrimestre (16 semanas)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cierre del año -->
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <h2>CIERRE DEL AÑO ACADÉMICO</h2>
+          </div>
+          <div class="calendar-content">
+            <!-- Exámenes -->
+            <div class="event-category">
+              <div class="event-category-title">MESAS DE EXÁMENES - TURNO DICIEMBRE</div>
+              
+              <div class="event-item">
+                <div class="event-date">3 al 5 de diciembre</div>
+                <div class="event-description">
+                  <div class="event-title">Inscripción a mesas de examen</div>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">15 al 19 de diciembre</div>
+                <div class="event-description">
+                  <div class="event-title">Período de mesas de examen</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Actividades finales -->
+            <div class="event-category">
+              <div class="event-category-title">ACTIVIDADES DE CIERRE</div>
+              
+              <div class="event-item">
+                <div class="event-date">5 de diciembre</div>
+                <div class="event-description">
+                  <div class="event-title">Muestra de fin de Año</div>
+                  <div class="event-details">Exhibición de trabajos finales</div>
+                </div>
+              </div>
+              
+              <div class="event-item highlight-event">
+                <div class="event-date">22 de diciembre</div>
+                <div class="event-description">
+                  <div class="event-title">FIN DE LAS ACTIVIDADES ADMINISTRATIVAS Y ACADÉMICAS</div>
+                  <div class="event-details">Cierre del año académico 2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
