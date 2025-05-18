@@ -196,94 +196,94 @@ class Buscador {
 
   // Crear la interfaz de búsqueda
   createSearchInterface() {
-  // Crear contenedor principal
-  const searchContainer = document.createElement("div");
-  searchContainer.className = "web-only-content";
-  searchContainer.style.display = "flex";
-  searchContainer.style.flexDirection = "column";
-  searchContainer.style.gap = "1rem";
+    // Crear contenedor principal
+    const searchContainer = document.createElement("div")
+    searchContainer.className = "web-only-content"
+    searchContainer.style.display = "flex"
+    searchContainer.style.flexDirection = "column"
+    searchContainer.style.gap = "1rem"
 
-  // Título (h1)
-  this.searchTitle = document.createElement("h1");
-  this.searchTitle.textContent = "Buscador de Materias";
-  this.searchTitle.style.color = "#eee76e";
-  this.searchTitle.style.margin = "0";
+    // Título (h1)
+    this.searchTitle = document.createElement("h1")
+    this.searchTitle.textContent = "Buscador de Materias"
+    this.searchTitle.style.color = "#eee76e"
+    this.searchTitle.style.margin = "0"
 
-  // Párrafo (p)
-  this.searchDescription = document.createElement("p");
-  this.searchDescription.textContent = "Podes buscar tus materias y exportar un pdf personalizado.";
-  this.searchDescription.style.color = "#ccc";
-  this.searchDescription.style.margin = "0";
+    // Párrafo (p)
+    this.searchDescription = document.createElement("p")
+    this.searchDescription.textContent = "Podes buscar tus materias y exportar un pdf personalizado."
+    this.searchDescription.style.color = "#ccc"
+    this.searchDescription.style.margin = "0"
 
-  // Agregarlos primero al contenedor principal
-  searchContainer.appendChild(this.searchTitle);
-  searchContainer.appendChild(this.searchDescription);
 
-  // Crear campo de búsqueda
-  const searchInputContainer = document.createElement("div");
-  searchInputContainer.style.display = "flex";
-  searchInputContainer.style.gap = "0.5rem";
 
-  this.searchInput = document.createElement("input");
-  this.searchInput.type = "text";
-  this.searchInput.placeholder = "Buscar por materia o docente...";
-  this.searchInput.style.flex = "1";
-  this.searchInput.style.padding = "0.5rem";
-  this.searchInput.style.borderRadius = "0.25rem";
-  this.searchInput.style.border = "1px solid #eee76e";
-  this.searchInput.style.backgroundColor = "#1d4044";
-  this.searchInput.style.color = "white";
+    // Agregarlos primero al contenedor principal
+    searchContainer.appendChild(this.searchTitle)
+    searchContainer.appendChild(this.searchDescription)
 
-  this.searchButton = document.createElement("button");
-  this.searchButton.textContent = "Buscar";
-  this.searchButton.className = "export-button";
-  this.searchButton.style.backgroundColor = "#285e61";
+    // Crear campo de búsqueda
+    const searchInputContainer = document.createElement("div")
+    searchInputContainer.style.display = "flex"
+    searchInputContainer.style.gap = "0.5rem"
 
-  searchInputContainer.appendChild(this.searchInput);
-  searchInputContainer.appendChild(this.searchButton);
+    this.searchInput = document.createElement("input")
+    this.searchInput.type = "text"
+    this.searchInput.placeholder = "Buscar por materia o docente..."
+    this.searchInput.style.flex = "1"
+    this.searchInput.style.padding = "0.5rem"
+    this.searchInput.style.borderRadius = "0.25rem"
+    this.searchInput.style.border = "1px solid #eee76e"
+    this.searchInput.style.backgroundColor = "#1d4044"
+    this.searchInput.style.color = "white"
 
-  // Botones para gestionar la selección
-  const selectionButtonsContainer = document.createElement("div");
-  selectionButtonsContainer.style.display = "flex";
-  selectionButtonsContainer.style.gap = "0.5rem";
-  selectionButtonsContainer.style.flexWrap = "wrap";
+    this.searchButton = document.createElement("button")
+    this.searchButton.textContent = "Buscar"
+    this.searchButton.className = "export-button"
+    this.searchButton.style.backgroundColor = "#285e61"
 
-  this.clearSelectionButton = document.createElement("button");
-  this.clearSelectionButton.textContent = "Limpiar selección";
-  this.clearSelectionButton.className = "export-button";
-  this.clearSelectionButton.style.backgroundColor = "#6b2e2e";
-  this.clearSelectionButton.disabled = true;
+    searchInputContainer.appendChild(this.searchInput)
+    searchInputContainer.appendChild(this.searchButton)
 
-  selectionButtonsContainer.appendChild(this.clearSelectionButton);
+    // Botones para gestionar la selección
+    const selectionButtonsContainer = document.createElement("div")
+    selectionButtonsContainer.style.display = "flex"
+    selectionButtonsContainer.style.gap = "0.5rem"
+    selectionButtonsContainer.style.flexWrap = "wrap"
 
-  // Contenedor para términos de búsqueda
-  this.searchTermsContainer = document.createElement("div");
-  this.searchTermsContainer.className = "search-terms-container";
-  this.searchTermsContainer.style.display = "flex";
-  this.searchTermsContainer.style.flexWrap = "wrap";
-  this.searchTermsContainer.style.gap = "0.5rem";
+    this.clearSelectionButton = document.createElement("button")
+    this.clearSelectionButton.textContent = "Limpiar selección"
+    this.clearSelectionButton.className = "export-button"
+    this.clearSelectionButton.style.backgroundColor = "#6b2e2e"
+    this.clearSelectionButton.disabled = true
 
-  // Información sobre la selección actual
-  this.selectionInfo = document.createElement("div");
-  this.selectionInfo.className = "selection-info";
-  this.selectionInfo.style.marginTop = "0.5rem";
-  this.selectionInfo.style.color = "#eee76e";
-  this.selectionInfo.textContent = "No hay materias seleccionadas";
+    selectionButtonsContainer.appendChild(this.clearSelectionButton)
 
-  // Agregar el resto de elementos
-  searchContainer.appendChild(searchInputContainer);
-  searchContainer.appendChild(selectionButtonsContainer);
-  searchContainer.appendChild(this.searchTermsContainer);
-  searchContainer.appendChild(this.selectionInfo);
+    // Contenedor para términos de búsqueda
+    this.searchTermsContainer = document.createElement("div")
+    this.searchTermsContainer.className = "search-terms-container"
+    this.searchTermsContainer.style.display = "flex"
+    this.searchTermsContainer.style.flexWrap = "wrap"
+    this.searchTermsContainer.style.gap = "0.5rem"
 
-  // Insertar antes de la navegación principal
-  const scheduleContainer = document.querySelector(".schedule-container");
-  if (scheduleContainer && scheduleContainer.parentNode) {
-    scheduleContainer.parentNode.insertBefore(searchContainer, scheduleContainer);
+    // Información sobre la selección actual
+    this.selectionInfo = document.createElement("div")
+    this.selectionInfo.className = "selection-info"
+    this.selectionInfo.style.marginTop = "0.5rem"
+    this.selectionInfo.style.color = "#eee76e"
+    this.selectionInfo.textContent = "No hay materias seleccionadas"
+
+    // Agregar el resto de elementos
+    searchContainer.appendChild(searchInputContainer)
+    searchContainer.appendChild(selectionButtonsContainer)
+    searchContainer.appendChild(this.searchTermsContainer)
+    searchContainer.appendChild(this.selectionInfo)
+
+    // Insertar antes de la navegación principal
+    const scheduleContainer = document.querySelector(".schedule-container")
+    if (scheduleContainer && scheduleContainer.parentNode) {
+      scheduleContainer.parentNode.insertBefore(searchContainer, scheduleContainer)
+    }
   }
-  
-}
-
 
   // Crear la grilla paralela para previsualización
   createPreviewGrid() {
@@ -1125,4 +1125,406 @@ class Buscador {
 document.addEventListener("DOMContentLoaded", () => {
   const buscador = new Buscador()
   buscador.init()
+})
+
+// Sistema de búsqueda inteligente con autocompletado
+class BuscadorInteligente {
+  constructor() {
+    this.searchInput = null
+    this.suggestionsContainer = null
+    this.allMaterias = []
+    this.allDocentes = []
+    this.allTerms = [] // Combinación de materias y docentes
+    this.initialized = false
+    this.originalBuscador = null // Referencia al buscador original
+    this.maxSuggestions = 5 // Número máximo de sugerencias a mostrar
+    this.minCharsForSuggestions = 2 // Mínimo de caracteres para mostrar sugerencias
+    this.currentFocus = -1 // Índice del elemento seleccionado en las sugerencias
+  }
+
+  // Inicializar el buscador inteligente
+  init() {
+    if (this.initialized) return
+
+    // Esperar a que el buscador original esté inicializado
+    const checkOriginalBuscador = setInterval(() => {
+      const originalInput = document.querySelector('input[type="text"][placeholder*="Buscar"]')
+      if (originalInput) {
+        clearInterval(checkOriginalBuscador)
+        this.setupAutocomplete(originalInput)
+      }
+    }, 100)
+
+    this.initialized = true
+  }
+
+  // Configurar el autocompletado en el input de búsqueda existente
+  setupAutocomplete(originalInput) {
+    this.searchInput = originalInput
+
+    // Obtener el buscador original
+    this.originalBuscador = window.buscador || null
+
+    // Si tenemos acceso al buscador original, usar sus datos
+    if (this.originalBuscador) {
+      this.allMaterias = this.originalBuscador.allMaterias || []
+      this.allDocentes = this.originalBuscador.allDocentes || []
+    } else {
+      // Si no, recopilar los datos nosotros mismos
+      this.collectData()
+    }
+
+    // Combinar materias y docentes en una sola lista de términos
+    this.allTerms = [...this.allMaterias, ...this.allDocentes]
+
+    // Crear el contenedor de sugerencias
+    this.createSuggestionsContainer()
+
+    // Agregar event listeners
+    this.addEventListeners()
+  }
+
+  // Crear el contenedor de sugerencias
+  createSuggestionsContainer() {
+    // Eliminar el contenedor existente si lo hay
+    const existingContainer = document.getElementById("autocomplete-suggestions")
+    if (existingContainer) {
+      existingContainer.remove()
+    }
+
+    // Crear nuevo contenedor
+    this.suggestionsContainer = document.createElement("div")
+    this.suggestionsContainer.id = "autocomplete-suggestions"
+    this.suggestionsContainer.className = "autocomplete-suggestions"
+    this.suggestionsContainer.style.display = "none"
+    this.suggestionsContainer.style.position = "absolute"
+    this.suggestionsContainer.style.zIndex = "1000"
+    this.suggestionsContainer.style.backgroundColor = "#1d4044"
+    this.suggestionsContainer.style.border = "1px solid #eee76e"
+    this.suggestionsContainer.style.borderRadius = "0.25rem"
+    this.suggestionsContainer.style.maxHeight = "200px"
+    this.suggestionsContainer.style.overflowY = "auto"
+    this.suggestionsContainer.style.width = `${this.searchInput.offsetWidth}px`
+
+    // Insertar después del input de búsqueda
+    this.searchInput.parentNode.insertBefore(this.suggestionsContainer, this.searchInput.nextSibling)
+
+    // Posicionar el contenedor debajo del input
+    this.updateSuggestionsPosition()
+
+    // Actualizar la posición cuando la ventana cambie de tamaño
+    window.addEventListener("resize", () => {
+      this.updateSuggestionsPosition()
+    })
+  }
+
+  // Actualizar la posición del contenedor de sugerencias
+  updateSuggestionsPosition() {
+    if (!this.searchInput || !this.suggestionsContainer) return
+
+    const inputRect = this.searchInput.getBoundingClientRect()
+    this.suggestionsContainer.style.width = `${this.searchInput.offsetWidth}px`
+    this.suggestionsContainer.style.left = `${inputRect.left}px`
+    this.suggestionsContainer.style.top = `${inputRect.bottom + window.scrollY}px`
+  }
+
+  // Recopilar datos de materias y docentes
+  collectData() {
+    // Obtener todas las materias
+    const materiaElements = document.querySelectorAll(".subject-cell")
+    materiaElements.forEach((el) => {
+      const materia = el.textContent.trim()
+      if (materia && !this.allMaterias.includes(materia)) {
+        this.allMaterias.push(materia)
+      }
+    })
+
+    // Obtener todos los docentes
+    const docenteElements = document.querySelectorAll(".professor-cell")
+    docenteElements.forEach((el) => {
+      const docente = el.textContent.trim()
+      if (docente && !this.allDocentes.includes(docente)) {
+        this.allDocentes.push(docente)
+      }
+    })
+  }
+
+  // Agregar event listeners
+  addEventListeners() {
+    // Evento de input para mostrar sugerencias mientras el usuario escribe
+    this.searchInput.addEventListener("input", () => {
+      this.showSuggestions()
+    })
+
+    // Eventos de teclado para navegar por las sugerencias
+    this.searchInput.addEventListener("keydown", (e) => {
+      this.handleKeyNavigation(e)
+    })
+
+    // Cerrar sugerencias al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (e.target !== this.searchInput && e.target !== this.suggestionsContainer) {
+        this.suggestionsContainer.style.display = "none"
+        this.currentFocus = -1
+      }
+    })
+  }
+
+  // Mostrar sugerencias basadas en el texto actual
+  showSuggestions() {
+    const inputValue = this.searchInput.value.trim()
+
+    // Limpiar sugerencias actuales
+    this.suggestionsContainer.innerHTML = ""
+    this.currentFocus = -1
+
+    // Si el input está vacío o es muy corto, ocultar sugerencias
+    if (inputValue.length < this.minCharsForSuggestions) {
+      this.suggestionsContainer.style.display = "none"
+      return
+    }
+
+    // Obtener sugerencias
+    const suggestions = this.getSuggestions(inputValue)
+
+    // Si no hay sugerencias, ocultar el contenedor
+    if (suggestions.length === 0) {
+      this.suggestionsContainer.style.display = "none"
+      return
+    }
+
+    // Mostrar sugerencias
+    suggestions.forEach((suggestion, index) => {
+      const suggestionElement = document.createElement("div")
+      suggestionElement.className = "autocomplete-suggestion"
+      suggestionElement.style.padding = "0.5rem"
+      suggestionElement.style.cursor = "pointer"
+      suggestionElement.style.borderBottom = index < suggestions.length - 1 ? "1px solid #285e61" : "none"
+
+      // Resaltar la parte que coincide con la búsqueda
+      const highlightedText = this.highlightMatch(suggestion, inputValue)
+      suggestionElement.innerHTML = highlightedText
+
+      // Agregar evento de clic
+      suggestionElement.addEventListener("click", () => {
+        this.selectSuggestion(suggestion)
+      })
+
+      // Agregar evento de hover
+      suggestionElement.addEventListener("mouseover", () => {
+        this.currentFocus = index
+        this.addActive()
+      })
+
+      this.suggestionsContainer.appendChild(suggestionElement)
+    })
+
+    // Mostrar el contenedor de sugerencias
+    this.suggestionsContainer.style.display = "block"
+    this.updateSuggestionsPosition()
+  }
+
+  // Obtener sugerencias basadas en el texto de entrada
+  getSuggestions(inputValue) {
+    const normalizedInput = this.normalizeText(inputValue.toLowerCase())
+
+    // Primero buscar coincidencias exactas al inicio
+    const exactMatches = this.allTerms.filter((term) =>
+      this.normalizeText(term.toLowerCase()).startsWith(normalizedInput),
+    )
+
+    // Luego buscar coincidencias parciales (contiene)
+    const partialMatches = this.allTerms.filter(
+      (term) => !exactMatches.includes(term) && this.normalizeText(term.toLowerCase()).includes(normalizedInput),
+    )
+
+    // Finalmente, buscar coincidencias fuzzy para términos que no coinciden exactamente
+    const fuzzyMatches = []
+    if (exactMatches.length + partialMatches.length < this.maxSuggestions) {
+      const remainingSlots = this.maxSuggestions - (exactMatches.length + partialMatches.length)
+
+      this.allTerms.forEach((term) => {
+        if (!exactMatches.includes(term) && !partialMatches.includes(term)) {
+          const distance = this.levenshteinDistance(normalizedInput, this.normalizeText(term.toLowerCase()))
+          const threshold = Math.max(2, Math.floor(normalizedInput.length * 0.4))
+
+          if (distance <= threshold) {
+            fuzzyMatches.push({ term, distance })
+          }
+        }
+      })
+
+      // Ordenar por distancia (menor primero)
+      fuzzyMatches.sort((a, b) => a.distance - b.distance)
+    }
+
+    // Combinar y limitar resultados
+    const allSuggestions = [
+      ...exactMatches,
+      ...partialMatches,
+      ...fuzzyMatches
+        .slice(0, this.maxSuggestions - (exactMatches.length + partialMatches.length))
+        .map((match) => match.term),
+    ].slice(0, this.maxSuggestions)
+
+    return allSuggestions
+  }
+
+  // Normalizar texto (quitar acentos)
+  normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  }
+
+  // Calcular distancia de Levenshtein entre dos cadenas
+  levenshteinDistance(a, b) {
+    if (a.length === 0) return b.length
+    if (b.length === 0) return a.length
+
+    const matrix = []
+
+    // Inicializar matriz
+    for (let i = 0; i <= b.length; i++) {
+      matrix[i] = [i]
+    }
+
+    for (let i = 0; i <= a.length; i++) {
+      matrix[0][i] = i
+    }
+
+    // Rellenar matriz
+    for (let i = 1; i <= b.length; i++) {
+      for (let j = 1; j <= a.length; j++) {
+        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1]
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1, // sustitución
+            matrix[i][j - 1] + 1, // inserción
+            matrix[i - 1][j] + 1, // eliminación
+          )
+        }
+      }
+    }
+
+    return matrix[b.length][a.length]
+  }
+
+  // Resaltar la parte del texto que coincide con la búsqueda
+  highlightMatch(text, query) {
+    const normalizedText = this.normalizeText(text.toLowerCase())
+    const normalizedQuery = this.normalizeText(query.toLowerCase())
+
+    // Si es una coincidencia exacta al inicio
+    if (normalizedText.startsWith(normalizedQuery)) {
+      return `<strong style="color: #eee76e">${text.substring(0, query.length)}</strong>${text.substring(query.length)}`
+    }
+
+    // Si es una coincidencia parcial (contiene)
+    const index = normalizedText.indexOf(normalizedQuery)
+    if (index !== -1) {
+      return `${text.substring(0, index)}<strong style="color: #eee76e">${text.substring(index, index + query.length)}</strong>${text.substring(index + query.length)}`
+    }
+
+    // Si es una coincidencia fuzzy, no resaltamos nada
+    return text
+  }
+
+  // Seleccionar una sugerencia
+  selectSuggestion(suggestion) {
+    this.searchInput.value = suggestion
+    this.suggestionsContainer.style.display = "none"
+
+    // Si existe el buscador original, realizar la búsqueda
+    if (this.originalBuscador && typeof this.originalBuscador.performSearch === "function") {
+      this.originalBuscador.performSearch()
+    } else {
+      // Disparar evento de enter en el input para simular búsqueda
+      const event = new KeyboardEvent("keypress", {
+        key: "Enter",
+        code: "Enter",
+        keyCode: 13,
+        which: 13,
+        bubbles: true,
+      })
+      this.searchInput.dispatchEvent(event)
+    }
+  }
+
+  // Manejar navegación por teclado
+  handleKeyNavigation(e) {
+    // Si el contenedor de sugerencias está oculto, no hacer nada
+    if (this.suggestionsContainer.style.display === "none") return
+
+    const suggestions = this.suggestionsContainer.querySelectorAll(".autocomplete-suggestion")
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault()
+      this.currentFocus++
+      this.addActive(suggestions)
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault()
+      this.currentFocus--
+      this.addActive(suggestions)
+    } else if (e.key === "Enter") {
+      e.preventDefault()
+      if (this.currentFocus > -1 && suggestions[this.currentFocus]) {
+        this.selectSuggestion(suggestions[this.currentFocus].textContent.replace(/<\/?[^>]+(>|$)/g, ""))
+      }
+    } else if (e.key === "Escape") {
+      this.suggestionsContainer.style.display = "none"
+      this.currentFocus = -1
+    }
+  }
+
+  // Agregar clase activa al elemento seleccionado
+  addActive(suggestions = null) {
+    if (!suggestions) {
+      suggestions = this.suggestionsContainer.querySelectorAll(".autocomplete-suggestion")
+    }
+
+    // Remover clase activa de todos los elementos
+    Array.from(suggestions).forEach((suggestion) => {
+      suggestion.style.backgroundColor = ""
+    })
+
+    // Si no hay sugerencias, salir
+    if (!suggestions.length) return
+
+    // Ajustar el índice si está fuera de rango
+    if (this.currentFocus >= suggestions.length) this.currentFocus = 0
+    if (this.currentFocus < 0) this.currentFocus = suggestions.length - 1
+
+    // Agregar clase activa al elemento seleccionado
+    suggestions[this.currentFocus].style.backgroundColor = "#285e61"
+
+    // Asegurar que el elemento seleccionado sea visible
+    suggestions[this.currentFocus].scrollIntoView({ block: "nearest" })
+  }
+}
+
+// Inicializar el buscador inteligente cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", () => {
+  // Guardar referencia al buscador original si existe
+  const originalBuscadorInit = window.buscador ? window.buscador.init : null
+
+  // Crear instancia del buscador inteligente
+  const buscadorInteligente = new BuscadorInteligente()
+
+  // Inicializar el buscador original primero si existe
+  if (originalBuscadorInit) {
+    const originalInit = window.buscador.init
+    window.buscador.init = () => {
+      originalInit.apply(window.buscador)
+      // Luego inicializar el buscador inteligente
+      buscadorInteligente.init()
+    }
+
+    // Si ya se ha inicializado, inicializar el buscador inteligente directamente
+    if (window.buscador.initialized) {
+      buscadorInteligente.init()
+    }
+  } else {
+    // Si no hay buscador original, inicializar directamente
+    buscadorInteligente.init()
+  }
 })

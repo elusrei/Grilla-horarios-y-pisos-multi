@@ -21,7 +21,7 @@ function() {
       }
       
       .printable-content {
-        padding: 5mm; /* Add a small internal padding instead of margin */
+        padding: 0mm; /* Add a small internal padding instead of margin */
       }
     }
   `;

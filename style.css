@@ -269,6 +269,8 @@ td {
   pointer-events: none;
 }
 
+
+
 /* Estilos para impresión */
 @media print {
   body {
